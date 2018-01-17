@@ -18,6 +18,7 @@ import com.oa.commons.model.DataGrid;
 import com.oa.commons.model.PageParam;
 import com.oa.commons.util.ServletUtil;
 import com.oa.manager.administration.service.IVoteService;
+import com.oa.manager.common_platform.bean.Newsmanagement;
 import com.oa.manager.common_platform.service.IMeetingService;
 import com.oa.manager.common_platform.service.INewsService;
 import com.oa.manager.coordination.bean.XtJournal;
@@ -299,6 +300,7 @@ public class PerMsgServiceImpl extends BaseServiceImpl implements IPerMsgService
 	}
 	@Override
 	public Long totleNoticBarByType(short i) {
+		
 		return (Long) dao.findUniqueOne("select count(*) from PerMsg m where m.readState='0' and m.userId=? and m.msgType=? ",ServletUtil.getMember().getId(),i);
 	}
 }
