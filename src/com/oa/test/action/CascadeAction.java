@@ -30,34 +30,19 @@ public class CascadeAction extends BaseAction{
 	
 	@RequestMapping("ont2one/save")
 	public ModelAndView save(User user,Idcard c){
-		
 		user.setName("小黑");
-		
 		c.setAddress("济南");
-		
 		user.setIdcard(c);
-		
-		
-		
 		service.save(user);
-	
 		c.setUser(user);
-		
-		
-		
 		service.save(c);
-		
 		return ajaxDoneSuccess();
-	
 	}
 	@RequestMapping("ont2one/update")
 	
 	public ModelAndView update(){
-		
 		service.updateOne2One();
-		
 		return ajaxDoneSuccess();
 	
 	}
-	
 }
